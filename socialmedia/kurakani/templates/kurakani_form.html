@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+ {% block title %} 
+ Kurakani App 
+{% endblock %} 
+
+{% block content %}
+<h1 class = "text-center mt-4">Welcome to The Kurakani Social Media</h1>
+<h2>{% if form.instance.pk %} Edit Kurakani {% else %} Create Kurakani {% endif %}
+    <form method="post" enctype= "multipart/form-data" class= "form">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button class="btn btn-warning" type="submit">Post Kurakani</button>
+    </form> 
+     {% comment %} accepts images/files {% endcomment %}
+        <a href="{% url 'kurakani_list' %}">Back to Kurakani List</a>
+</h2>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %} {% block title %} Kurakani App {% endblock %} {%block content %}
+<h1 class="text-center mt-4">Welcome to The Kurakani Social Media</h1>
+
+<a class="btn btn-primary mb-4" href="{% url 'kurakani_create' %}">Start Kurakani</a>
+<div class="container row gap-3">
+  {% for kurakani in kurakanis %}
+  <div class="card" style="width: 18rem">
+    <img src="{{kurakani.photo.url}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{kurakani.user.username}}</h5>
+      <p class="card-text">{{kurakani.text}}</p>
+      <a href="{% url 'kurakani_edit' kurakani.id%}" class="btn btn-primary"
+        >Edit</a
+      >
+      <a href="{% url 'kurakani_delete' kurakani.id%}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
