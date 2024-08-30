@@ -9,10 +9,11 @@
     <div class="card-body">
       <h5 class="card-title">{{kurakani.user.username}}</h5>
       <p class="card-text">{{kurakani.text}}</p>
+      {% if kurakani.user == user %}
       <a href="{% url 'kurakani_edit' kurakani.id%}" class="btn btn-primary"
-        >Edit</a
-      >
+        >Edit</a>
       <a href="{% url 'kurakani_delete' kurakani.id%}" class="btn btn-danger">Delete</a>
+      {% endif %}
     </div>
   </div>
   {% endfor %}

@@ -6,4 +6,5 @@ urlpatterns = [
     path('create/', views.kurakani_create, name = 'kurakani_create'),
     path('<int:kurakani_id>/edit/', views.kurakani_edit, name = 'kurakani_edit'),
     path('<int:kurakani_id>/delete/', views.kurakani_delete, name = 'kurakani_delete'),
+    path('register/', views.register, name = 'register'),
 ]
